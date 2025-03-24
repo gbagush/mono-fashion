@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MONO - No 1 Men's Wear</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <meta name="title" content="MONO - No 1 Men's Wear" />
+    <meta
+      name="description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="og:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:image" content="" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="" />
+    <meta property="twitter:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="twitter:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="twitter:image" content="" />
+    <!-- TAILWIND CSS PLAYCDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="bg-white text-black">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex-shrink-0 flex items-center">
+            <a href="/">
+              <img class="h-12 w-auto" src="/assets/img/brand.png" alt="Logo" />
+            </a>
+          </div>
+
+          <div class="hidden sm:flex sm:space-x-8 justify-center">
+            <div class="relative group">
+              <a
+                href="#"
+                class="text-black inline-flex items-center px-3 py-2 border-b-2 border-transparent hover:border-black text-base font-medium transition duration-300 ease-in-out"
+              >
+                Top
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 ml-1 transition-transform duration-300 ease-in-out group-hover:-rotate-180"
+                ></i>
+              </a>
+              <div
+                class="absolute min-w-[180px] z-40 bg-white border border-gray-200 shadow-lg hidden group-hover:block transition-all duration-300 ease-in-out"
+              >
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >Shirt</a
+                >
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >T-Shirt</a
+                >
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >Outwear</a
+                >
+              </div>
+            </div>
+            <div class="relative group">
+              <a
+                href="#"
+                class="text-black inline-flex items-center px-3 py-2 border-b-2 border-transparent hover:border-black text-base font-medium"
+              >
+                Bottom
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 ml-1 transition-transform duration-300 ease-in-out group-hover:-rotate-180"
+                ></i>
+              </a>
+              <div
+                class="absolute min-w-[180px] z-40 bg-white border border-gray-200 shadow-lg hidden group-hover:block transition-all duration-300 ease-in-out"
+              >
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >Pants</a
+                >
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >Short Pants</a
+                >
+              </div>
+            </div>
+            <div class="relative group">
+              <a
+                href="#"
+                class="text-black inline-flex items-center px-3 py-2 border-b-2 border-transparent hover:border-black text-base font-medium"
+              >
+                Accessories
+                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+              </a>
+              <div
+                class="absolute min-w-[180px] z-40 bg-white border border-gray-200 shadow-lg hidden group-hover:block"
+              >
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >Glasses</a
+                >
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >Cap</a
+                >
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100"
+                  >Watch</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <a
+                href="#"
+                class="flex items-center text-black hover:text-gray-600"
+              >
+                <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+              </a>
+            </div>
+
+            <div class="ml-4 flex items-center sm:hidden">
+              <button
+                id="mobile-menu-button"
+                type="button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-gray-600"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Open main menu</span>
+                <i
+                  data-lucide="menu"
+                  class="block h-6 w-6"
+                  id="hamburger-icon"
+                ></i>
+                <i data-lucide="x" class="hidden h-6 w-6" id="close-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="sm:hidden hidden" id="mobile-menu">
+        <div class="pt-2 pb-3 space-y-1">
+          <div>
+            <button
+              id="mobile-top-button"
+              class="w-full text-left border-l-4 border-black text-black block pl-3 pr-4 py-2 text-base font-medium"
+            >
+              Top
+              <i data-lucide="chevron-down" class="w-4 h-4 inline ml-1"></i>
+            </button>
+            <div id="mobile-top-menu" class="hidden pl-6 bg-gray-50">
+              <a href="#" class="block px-4 py-2 text-base">Shirt</a>
+              <a href="#" class="block px-4 py-2 text-base">T-Shirt</a>
+              <a href="#" class="block px-4 py-2 text-base">Outwear</a>
+            </div>
+          </div>
+
+          <div>
+            <button
+              id="mobile-bottom-button"
+              class="w-full text-left border-l-4 border-transparent text-black block pl-3 pr-4 py-2 text-base font-medium"
+            >
+              Bottom
+              <i data-lucide="chevron-down" class="w-4 h-4 inline ml-1"></i>
+            </button>
+            <div id="mobile-bottom-menu" class="hidden pl-6 bg-gray-50">
+              <a href="#" class="block px-4 py-2 text-base">Pants</a>
+              <a href="#" class="block px-4 py-2 text-base">Short Pants</a>
+            </div>
+          </div>
+
+          <div>
+            <button
+              id="mobile-accessories-button"
+              class="w-full text-left border-l-4 border-transparent text-black block pl-3 pr-4 py-2 text-base font-medium"
+            >
+              Accessories
+              <i data-lucide="chevron-down" class="w-4 h-4 inline ml-1"></i>
+            </button>
+            <div id="mobile-accessories-menu" class="hidden pl-6 bg-gray-50">
+              <a href="#" class="block px-4 py-2 text-base">Glasses</a>
+              <a href="#" class="block px-4 py-2 text-base">Cap</a>
+              <a href="#" class="block px-4 py-2 text-base">Watch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- END OF NAVBAR -->
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden h-[64vh]">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/assets/video/banner.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/75 z-10"
+      ></div>
+
+      <div class="relative z-10 flex items-end h-full w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
+          <div class="text-white">
+            <h1 class="text-5xl font-bold mb-12">NEW SEASON</h1>
+            <a
+              href="#"
+              class="bg-white hover:bg-gray-300 text-black font-semibold py-4 px-8 transition duration-300 ease-in-out"
+            >
+              Shop Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END OF HERO SECTION -->
+
+    <!-- BEST CATEGORIES SECTION -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h2
+        class="text-2xl text-center md:text-left md:text-3xl font-semibold mb-8 uppercase underline"
+      >
+        Best Categories
+      </h2>
+
+      <div class="flex flex-col md:grid md:grid-cols-3 gap-4">
+        <div class="relative overflow-hidden" data-aos="fade-up">
+          <img
+            src="assets/img/shirt.webp"
+            alt="Category 1"
+            class="scale-105 w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-100"
+          />
+          <div
+            class="absolute top-0 left-0 font-bold text-lg uppercase px-8 py-4"
+          >
+            Shirts
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden" data-aos="fade-up">
+          <img
+            src="assets/img/pants.webp"
+            alt="Category 2"
+            class="scale-105 w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-100"
+          />
+          <div
+            class="absolute top-0 left-0 font-bold text-lg uppercase px-8 py-4"
+          >
+            Pants
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden" data-aos="fade-up">
+          <img
+            src="assets/img/outwear.webp"
+            alt="Category 3"
+            class="scale-105 w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-100"
+          />
+          <div
+            class="absolute top-0 left-0 font-bold text-lg uppercase px-8 py-4"
+          >
+            Outerwear
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF BEST CATEGORIES SECTION -->
+
+    <!-- NEW ARRIVAL PRODUCTS SECTION -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h2
+        class="text-2xl text-center md:text-left md:text-3xl font-semibold mb-8 uppercase underline"
+      >
+        NEW ARRIVAL
+      </h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="">
+          <img
+            src="assets/img/outwear.webp"
+            alt="Product 1"
+            class="w-full h-80 object-cover"
+          />
+          <div class="flex flex-col py-2">
+            <h4 class="font-bold">Nevada</h4>
+            <h4 class="truncate">
+              Nevada Woven Twill Basic Color Series Kemeja Lengan Pendek Pria
+            </h4>
+            <h3 class="mt-2 text-xl font-bold">Rp 125,000</h3>
+            <span>
+              <span class="text-zinc-600 line-through">Rp 249,000</span>
+              <span class="text-red-600 font-bold">-50%</span>
+            </span>
+          </div>
+        </div>
+        <div class="">
+          <img
+            src="assets/img/pants.webp"
+            alt="Product 1"
+            class="w-full h-80 object-cover"
+          />
+          <div class="flex flex-col py-2">
+            <h4 class="font-bold">Nevada</h4>
+            <h4 class="truncate">
+              Nevada Woven Twill Basic Color Series Kemeja Lengan Pendek Pria
+            </h4>
+            <h3 class="mt-2 text-xl font-bold">Rp 125,000</h3>
+            <span>
+              <span class="text-zinc-600 line-through">Rp 249,000</span>
+              <span class="text-red-600 font-bold">-50%</span>
+            </span>
+          </div>
+        </div>
+        <div class="">
+          <img
+            src="assets/img/shirt.webp"
+            alt="Product 1"
+            class="w-full h-80 object-cover"
+          />
+          <div class="flex flex-col py-2">
+            <h4 class="font-bold">Nevada</h4>
+            <h4 class="truncate">
+              Nevada Woven Twill Basic Color Series Kemeja Lengan Pendek Pria
+            </h4>
+            <h3 class="mt-2 text-xl font-bold">Rp 125,000</h3>
+            <span>
+              <span class="text-zinc-600 line-through">Rp 249,000</span>
+              <span class="text-red-600 font-bold">-50%</span>
+            </span>
+          </div>
+        </div>
+        <div class="">
+          <img
+            src="assets/img/t-shirt.webp"
+            alt="Product 1"
+            class="w-full h-80 object-cover"
+          />
+          <div class="flex flex-col py-2">
+            <h4 class="font-bold">Nevada</h4>
+            <h4 class="truncate">
+              Nevada Woven Twill Basic Color Series Kemeja Lengan Pendek Pria
+            </h4>
+            <h3 class="mt-2 text-xl font-bold">Rp 125,000</h3>
+            <span>
+              <span class="text-zinc-600 line-through">Rp 249,000</span>
+              <span class="text-red-600 font-bold">-50%</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF NEW ARRIVAL PRODUCTS SECTION -->
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-black text-white py-12 mt-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-8 md:mb-0">
+            <img
+              src="/assets/img/brand.png"
+              alt="MONO Logo"
+              class="h-12 w-auto invert mb-4"
+            />
+            <p class="text-gray-400 max-w-xs">
+              Elevate your style with our premium selection of men's fashion for
+              the modern man.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+            <div>
+              <h3 class="text-lg font-bold mb-4">Shop</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >Top</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >Bottom</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >Accessories</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >New Arrivals</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold mb-4">Help</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >FAQs</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >Shipping</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >Returns</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >Contact Us</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold mb-4">Company</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >Careers</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-400 hover:text-white transition"
+                    >Blog</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center md:justify-start space-x-6 my-8">
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i data-lucide="instagram" class="w-6 h-6"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i data-lucide="facebook" class="w-6 h-6"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i data-lucide="twitter" class="w-6 h-6"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <i data-lucide="youtube" class="w-6 h-6"></i>
+          </a>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 mt-4">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm mb-4 md:mb-0">
+              &copy; 2025 MONO. All rights reserved.
+            </p>
+
+            <div class="flex space-x-6">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white text-sm transition"
+                >Privacy Policy</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white text-sm transition"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END OF FOOTER SECTION -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      lucide.createIcons();
+      AOS.init();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const closeIcon = document.getElementById("close-icon");
+        let isMenuOpen = false;
+        mobileMenuButton.addEventListener("click", () => {
+          isMenuOpen = !isMenuOpen;
+          if (isMenuOpen) {
+            mobileMenu.classList.remove("hidden");
+            hamburgerIcon.classList.add("hidden");
+            closeIcon.classList.remove("hidden");
+          } else {
+            mobileMenu.classList.add("hidden");
+            hamburgerIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
+          }
+        });
+
+        const toggleMobileSubMenu = (buttonId, menuId) => {
+          const button = document.getElementById(buttonId);
+          const menu = document.getElementById(menuId);
+          button.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+          });
+        };
+        toggleMobileSubMenu("mobile-top-button", "mobile-top-menu");
+        toggleMobileSubMenu("mobile-bottom-button", "mobile-bottom-menu");
+        toggleMobileSubMenu(
+          "mobile-accessories-button",
+          "mobile-accessories-menu"
+        );
+      });
+    </script>
+  </body>
+</html>
