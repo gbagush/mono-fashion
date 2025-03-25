@@ -1,5 +1,6 @@
 class ProductCard {
   constructor({
+    productId,
     imageSrc,
     altText,
     brand,
@@ -9,6 +10,7 @@ class ProductCard {
     discount,
     colorVariants = [],
   }) {
+    this.productId = productId;
     this.imageSrc = imageSrc;
     this.altText = altText;
     this.brand = brand;
@@ -32,7 +34,9 @@ class ProductCard {
       this.colorVariants.length > 3 ? `+ ${this.colorVariants.length - 3}` : "";
 
     return `
-      <div class="relative group cursor-pointer">
+      <a href="/product.html?id=${
+        this.productId
+      }" class="relative group cursor-pointer">
         <div class="relative">
           <img
             src="${this.imageSrc}"
@@ -70,7 +74,7 @@ class ProductCard {
             <span class="text-red-600 font-bold">${this.discount}</span>
           </span>
         </div>
-      </div>
+      </a>
     `;
   }
 }

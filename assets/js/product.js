@@ -28,6 +28,7 @@ const getNewArivalProducts = () => {
 
 const transformProductData = (product) => {
   return {
+    productId: product.id,
     imageSrc: product.thumbnail,
     altText: product.name,
     brand: product.brand,

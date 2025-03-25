@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MONO - No 1 Men's Wear</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <meta name="title" content="MONO - No 1 Men's Wear" />
+    <meta
+      name="description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="og:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:image" content="/assets/img/banner.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/" />
+    <meta property="twitter:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="twitter:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="twitter:image" content="/assets/img/banner.png" />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+
+    <!-- TAILWIND CSS PLAYCDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div
+        id="products-not-found"
+        class="hidden items-center justify-center min-h-[calc(100vh-200px)]"
+      >
+        <div class="text-center">
+          <h2 class="text-2xl font-bold mb-4">No Products Found</h2>
+          <p class="text-zinc-500 mb-8">
+            We couldn't find any products matching your selection.
+          </p>
+          <a
+            href="shop.html"
+            class="bg-black hover:bg-zinc-700 text-white font-semibold py-4 px-8 transition duration-300 ease-in-out"
+          >
+            Browse Our Collection
+          </a>
+        </div>
+      </div>
+
+      <div id="product-details">
+        <div
+          id="breadcrumb"
+          class="flex flex-wrap items-center justify-center gap-4 mb-8"
+        >
+          <a href="/" class="text-zinc-600 hover:underline">Home</a>
+          <span>/</span>
+          <a href="/shop.html" class="text-zinc-600 hover:underline">Shop</a>
+          <span>/</span>
+          <a
+            id="section-breadcrumb"
+            href=""
+            class="text-zinc-600 hover:underline"
+          ></a>
+          <span>/</span>
+          <a
+            id="category-breadcrumb"
+            href=""
+            class="text-zinc-600 hover:underline"
+          ></a>
+          <span>/</span>
+          <a id="product-breadcrumb" class="truncate"></a>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <div class="flex flex-col md:flex-row gap-4">
+              <div
+                id="thumbnail-container"
+                class="flex gap-4 md:w-48 md:flex-col md:order-1 order-2 grid-cols-5 grid md:flex"
+              ></div>
+
+              <div class="flex-grow md:order-2 order-1">
+                <img
+                  id="main-image"
+                  src=""
+                  alt="Product Main Image"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div>
+              <p id="brand-name" class="text-xl uppercase font-bold mb-2"></p>
+              <h1 id="product-name" class="text-3xl mb-2"></h1>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <span id="discounted-price" class="text-2xl font-bold"></span>
+              <span id="normal-price" class="line-through text-zinc-600"></span>
+              <span
+                id="discount-badge"
+                class="text-lg text-red-600 font-bold"
+              ></span>
+            </div>
+
+            <p id="product-description" class="text-zinc-700 mb-4"></p>
+
+            <div class="mb-4">
+              <label id="color-variants-label" class="block mb-2 font-medium"
+                >Color Variants</label
+              >
+              <div id="color-varians" class="flex gap-4"></div>
+            </div>
+
+            <div class="mb-4">
+              <label class="block mb-2 font-medium">Size</label>
+              <div id="size-options" class="flex gap-2"></div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="flex items-center border">
+                <button id="decrease-quantity" class="px-3 py-2">-</button>
+                <input
+                  id="quantity"
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="w-16 text-center ring-0 focus:ring-0 focus:outline-none"
+                  readonly
+                />
+                <button id="increase-quantity" class="px-3 py-2">+</button>
+              </div>
+              <button class="bg-black text-white px-6 py-2 hover:bg-zinc-800">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="/assets/components/navbar.js"></script>
+    <script src="/assets/components/footer.js"></script>
+    <script src="/assets/components/product-card.js"></script>
+
+    <script src="/assets/js/navbar.js"></script>
+
+    <script type="module">
+      import {
+        getProductById,
+        transformProductData,
+      } from "/assets/js/product.js";
+      import { formatBreadcrumbText } from "/assets/js/utils.js";
+
+      const navbar = new Navbar();
+      document.getElementById("navbar").innerHTML = navbar.render();
+
+      const footer = new Footer();
+      document.getElementById("footer").innerHTML = footer.render();
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get("id");
+
+      const product = getProductById(parseInt(productId));
+
+      if (!product) {
+        const notFoundSection = document.getElementById("products-not-found");
+        const productDetailsSection =
+          document.getElementById("product-details");
+        notFoundSection.classList.remove("hidden");
+        notFoundSection.classList.add("flex");
+        productDetailsSection.classList.add("hidden");
+      }
+
+      function initPage() {
+        document.getElementById("product-name").textContent = product.name;
+        document.getElementById("brand-name").textContent = `${product.brand}`;
+        document.getElementById(
+          "discounted-price"
+        ).textContent = `Rp ${product.discountedPrice.toLocaleString()}`;
+        document.getElementById(
+          "normal-price"
+        ).textContent = `Rp ${product.normalPrice.toLocaleString()}`;
+        document.getElementById("discount-badge").textContent = `${Math.round(
+          (1 - product.discountedPrice / product.normalPrice) * 100
+        )}% OFF`;
+        document.getElementById("product-description").textContent =
+          product.description;
+
+        const firstVariant = product.variant[0];
+        updateBreadcrumb();
+        updateMainImage(firstVariant.images[0]);
+        createThumbnails(firstVariant.images);
+        createColorVariants();
+        createSizeOptions();
+        setupQuantityControls();
+      }
+
+      function updateBreadcrumb() {
+        const sectionBreadcrumb = document.getElementById("section-breadcrumb");
+        const categoryBreadcrumb = document.getElementById(
+          "category-breadcrumb"
+        );
+        const productBreadcrumb = document.getElementById("product-breadcrumb");
+
+        sectionBreadcrumb.innerText = formatBreadcrumbText(product.section);
+        sectionBreadcrumb.href = `/shop.html?section=${product.section}`;
+
+        categoryBreadcrumb.innerText = formatBreadcrumbText(product.category);
+        categoryBreadcrumb.href = `/shop.html?section=${product.section}&category=${product.category}`;
+
+        productBreadcrumb.innerText = product.name;
+      }
+
+      function updateMainImage(imageSrc) {
+        const mainImage = document.getElementById("main-image");
+        mainImage.src = imageSrc;
+      }
+
+      function createThumbnails(images) {
+        const thumbnailContainer = document.getElementById(
+          "thumbnail-container"
+        );
+        thumbnailContainer.innerHTML = "";
+
+        images.forEach((img, index) => {
+          const thumbnail = document.createElement("img");
+          thumbnail.src = img;
+          thumbnail.classList.add(
+            "w-full",
+            "h-20",
+            "object-cover",
+            "cursor-pointer",
+            "hover:opacity-75"
+          );
+          thumbnail.addEventListener("click", () => updateMainImage(img));
+          thumbnailContainer.appendChild(thumbnail);
+        });
+      }
+
+      function createColorVariants() {
+        const colorContainer = document.getElementById("color-varians");
+        const colorLabel = document.getElementById("color-variants-label");
+        colorContainer.innerHTML = "";
+
+        product.variant.forEach((variant, index) => {
+          const colorBtn = document.createElement("button");
+          colorBtn.classList.add(
+            "w-8",
+            "h-8",
+            "rounded-full",
+            "ring-2",
+            "ring-offset-4",
+            "ring-zinc-200",
+            `bg-${variant.color}`
+          );
+          colorBtn.title = variant.name;
+
+          colorBtn.addEventListener("click", () => {
+            colorContainer.querySelectorAll("button").forEach((btn) => {
+              btn.classList.remove("ring-black");
+              btn.classList.add("ring-zinc-200");
+            });
+
+            colorBtn.classList.remove("ring-zinc-200");
+            colorBtn.classList.add("ring-black");
+
+            colorLabel.textContent = `Color Variants: ${variant.name}`;
+
+            updateMainImage(variant.images[0]);
+            createThumbnails(variant.images);
+          });
+
+          if (index === 0) {
+            colorBtn.classList.add("ring-black");
+            colorLabel.textContent = `Color Variants: ${variant.name}`;
+          }
+
+          colorContainer.appendChild(colorBtn);
+        });
+      }
+
+      function createSizeOptions() {
+        const sizeContainer = document.getElementById("size-options");
+        sizeContainer.innerHTML = "";
+
+        product.size.forEach((size) => {
+          const sizeBtn = document.createElement("button");
+          sizeBtn.textContent = size;
+          sizeBtn.classList.add("px-4", "py-2", "border", "hover:bg-zinc-100");
+
+          sizeBtn.addEventListener("click", () => {
+            sizeContainer.querySelectorAll("button").forEach((btn) => {
+              btn.classList.remove(
+                "bg-black",
+                "text-white",
+                "hover:bg-zinc-800"
+              );
+            });
+
+            sizeBtn.classList.remove("hover:bg-zinc-100");
+            sizeBtn.classList.add(
+              "bg-black",
+              "text-white",
+              "hover:bg-zinc-800"
+            );
+          });
+
+          sizeContainer.appendChild(sizeBtn);
+        });
+      }
+
+      function setupQuantityControls() {
+        const quantityInput = document.getElementById("quantity");
+        const decreaseBtn = document.getElementById("decrease-quantity");
+        const increaseBtn = document.getElementById("increase-quantity");
+
+        decreaseBtn.addEventListener("click", () => {
+          let currentValue = parseInt(quantityInput.value);
+          if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+          }
+        });
+
+        increaseBtn.addEventListener("click", () => {
+          let currentValue = parseInt(quantityInput.value);
+          quantityInput.value = currentValue + 1;
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", initPage);
+
+      lucide.createIcons();
+      AOS.init();
+    </script>
+  </body>
+</html>
