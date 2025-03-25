@@ -1,4 +1,8 @@
 class Navbar {
+  constructor({ cartCount }) {
+    this.cartCount = cartCount;
+  }
+
   render() {
     return `
     <nav class="bg-white text-black">
@@ -83,14 +87,16 @@ class Navbar {
           </div>
 
           <div class="flex items-center">
-            <div class="flex-shrink-0">
-              <a
-                href="#"
-                class="flex items-center text-black hover:text-zinc-600"
-              >
+            <div class="relative flex-shrink-0">
+              <a href="/cart.html" class="flex items-center text-black hover:text-zinc-600">
                 <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                <span
+                  id="cart-item-count"
+                  class="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                >${this.cartCount}</span>
               </a>
             </div>
+
 
             <div class="ml-4 flex items-center sm:hidden">
               <button

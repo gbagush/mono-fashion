@@ -168,15 +168,16 @@
         getNewArivalProducts,
         transformProductData,
       } from "/assets/js/product.js";
+      import { getCartItemCount } from "/assets/js/cart.js";
 
-      const newArivalProducts =
-        getNewArivalProducts().map(transformProductData);
-
-      const navbar = new Navbar();
+      const navbar = new Navbar({ cartCount: getCartItemCount() });
       document.getElementById("navbar").innerHTML = navbar.render();
 
       const footer = new Footer();
       document.getElementById("footer").innerHTML = footer.render();
+
+      const newArivalProducts =
+        getNewArivalProducts().map(transformProductData);
 
       const productGrid = document.getElementById("new-arrivals-grid");
       newArivalProducts.forEach((productData) => {

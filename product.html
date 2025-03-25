@@ -34,6 +34,13 @@
 
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- TOASTIFY -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
   <body>
     <div id="navbar"></div>
@@ -142,7 +149,11 @@
                 />
                 <button id="increase-quantity" class="px-3 py-2">+</button>
               </div>
-              <button class="bg-black text-white px-6 py-2 hover:bg-zinc-800">
+              <button
+                id="add-to-cart"
+                class="flex gap-2 items-center bg-black text-white px-6 py-2 hover:bg-zinc-800"
+              >
+                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
                 Add to Cart
               </button>
             </div>
@@ -155,6 +166,10 @@
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
 
     <script src="/assets/components/navbar.js"></script>
     <script src="/assets/components/footer.js"></script>
@@ -168,8 +183,9 @@
         transformProductData,
       } from "/assets/js/product.js";
       import { formatBreadcrumbText } from "/assets/js/utils.js";
+      import { addProductToCart, getCartItemCount } from "/assets/js/cart.js";
 
-      const navbar = new Navbar();
+      const navbar = new Navbar({ cartCount: getCartItemCount() });
       document.getElementById("navbar").innerHTML = navbar.render();
 
       const footer = new Footer();
@@ -188,6 +204,10 @@
         notFoundSection.classList.add("flex");
         productDetailsSection.classList.add("hidden");
       }
+
+      let selectedSize = null;
+      let selectedColor = null;
+      let quantity = 1;
 
       function initPage() {
         document.getElementById("product-name").textContent = product.name;
@@ -282,6 +302,7 @@
             colorBtn.classList.remove("ring-zinc-200");
             colorBtn.classList.add("ring-black");
 
+            selectedColor = variant.name;
             colorLabel.textContent = `Color Variants: ${variant.name}`;
 
             updateMainImage(variant.images[0]);
@@ -321,7 +342,17 @@
               "text-white",
               "hover:bg-zinc-800"
             );
+
+            selectedSize = size;
           });
+
+          if (size === selectedSize) {
+            sizeBtn.classList.add(
+              "bg-black",
+              "text-white",
+              "hover:bg-zinc-800"
+            );
+          }
 
           sizeContainer.appendChild(sizeBtn);
         });
@@ -333,17 +364,42 @@
         const increaseBtn = document.getElementById("increase-quantity");
 
         decreaseBtn.addEventListener("click", () => {
-          let currentValue = parseInt(quantityInput.value);
-          if (currentValue > 1) {
-            quantityInput.value = currentValue - 1;
+          if (quantity > 1) {
+            quantity--;
+            quantityInput.value = quantity;
           }
         });
 
         increaseBtn.addEventListener("click", () => {
-          let currentValue = parseInt(quantityInput.value);
-          quantityInput.value = currentValue + 1;
+          quantity++;
+          quantityInput.value = quantity;
         });
+
+        quantityInput.value = quantity;
       }
+
+      document.getElementById("add-to-cart").addEventListener("click", () => {
+        const result = addProductToCart(
+          productId,
+          selectedColor,
+          selectedSize,
+          quantity
+        );
+
+        if (!result) {
+          Toastify({
+            text: "Fill all field first!",
+            style: {
+              background: "#000000",
+              padding: "16px 24px",
+              boxShadow: "none",
+            },
+            duration: 3000,
+          }).showToast();
+        }
+        document.getElementById("cart-item-count").textContent =
+          getCartItemCount();
+      });
 
       document.addEventListener("DOMContentLoaded", initPage);
 

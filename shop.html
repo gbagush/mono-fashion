@@ -41,7 +41,7 @@
     <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div
         id="breadcrumb"
-        class="flex flex-row items-center justify-center gap-4 mb-8"
+        class="flex flex-wrap items-center justify-center gap-4 mb-8"
       ></div>
 
       <div
@@ -87,8 +87,9 @@
         transformProductData,
       } from "/assets/js/product.js";
       import { generateBreadcrumb } from "/assets/js/utils.js";
+      import { getCartItemCount } from "/assets/js/cart.js";
 
-      const navbar = new Navbar();
+      const navbar = new Navbar({ cartCount: getCartItemCount() });
       document.getElementById("navbar").innerHTML = navbar.render();
 
       const footer = new Footer();

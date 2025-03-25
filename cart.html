@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MONO - No 1 Men's Wear</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <meta name="title" content="MONO - No 1 Men's Wear" />
+    <meta
+      name="description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="og:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:image" content="/assets/img/banner.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/" />
+    <meta property="twitter:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="twitter:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="twitter:image" content="/assets/img/banner.png" />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+
+    <!-- TAILWIND CSS PLAYCDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div
+        id="breadcrumb"
+        class="flex flex-wrap items-center justify-center gap-4 mb-8"
+      >
+        <a href="/" class="text-zinc-600 hover:underline">Home</a>
+        <span>/</span>
+        <a href="/shop.html" class="text-zinc-600 hover:underline">Shop</a>
+        <span>/</span>
+        <a>Cart</a>
+      </div>
+
+      <div
+        id="empty-cart-section"
+        class="hidden items-center justify-center min-h-[calc(100vh-200px)]"
+      >
+        <div class="text-center">
+          <img
+            src="/assets/img/empty-cart.png"
+            alt="Empty Cart"
+            class="mb-8 w-64 opacity-50"
+          />
+          <p class="text-zinc-500 mb-8">Your cart is currently empty.</p>
+          <a
+            href="shop.html"
+            class="bg-black hover:bg-zinc-700 text-white font-semibold py-4 px-8 transition duration-300 ease-in-out"
+          >
+            Browse Our Collection
+          </a>
+        </div>
+      </div>
+
+      <div
+        id="cart-details"
+        class="flex flex-col md:flex-row md:gap-8 space-y-8 md:space-y-0"
+      >
+        <div class="w-full md:w-5/6 border p-8">
+          <h3 class="text-2xl font-semibold">Your Products</h3>
+          <div class="w-full overflow-x-auto">
+            <table class="w-full my-2 border-collapse min-w-max">
+              <thead>
+                <tr class="border-b">
+                  <th class="text-sm font-normal text-left uppercase p-2">
+                    Product
+                  </th>
+                  <th class="text-sm font-normal text-center uppercase p-2">
+                    Quantity
+                  </th>
+                  <th class="text-sm font-normal text-right uppercase p-2">
+                    Total
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="cart-products-container"></tbody>
+            </table>
+          </div>
+          <div class="mt-8">
+            <a href="/shop.html" class="underline">Continue Shopping</a>
+          </div>
+        </div>
+        <div class="w-full md:w-2/6">
+          <h3 class="text-2xl font-semibold">Order Review</h3>
+          <div class="flex flex-col gap-2 py-8">
+            <div class="flex items-center justify-between">
+              <span class="text-zinc-700">Subtotal</span>
+              <span id="subtotal" class="font-medium"></span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-zinc-700">Shipping</span>
+              <span id="shipping" class="font-medium"></span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-zinc-700">Tax</span>
+              <span id="tax" class="font-medium"></span>
+            </div>
+            <div class="flex items-center justify-between py-8">
+              <span class="text-zinc-700">Total</span>
+              <span id="total" class="font-medium"></span>
+            </div>
+            <button class="bg-black text-white py-4">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="/assets/components/navbar.js"></script>
+    <script src="/assets/components/footer.js"></script>
+    <script src="/assets/components/product-card.js"></script>
+
+    <script src="/assets/js/navbar.js"></script>
+
+    <script type="module">
+      import {
+        getProductById,
+        transformProductData,
+      } from "/assets/js/product.js";
+      import {
+        getCartItemCount,
+        getCartProducts,
+        updateCartItem,
+        deleteCartItem,
+      } from "/assets/js/cart.js";
+      import { formatPrice } from "/assets/js/utils.js";
+
+      const navbar = new Navbar({ cartCount: getCartItemCount() });
+      document.getElementById("navbar").innerHTML = navbar.render();
+
+      const footer = new Footer();
+      document.getElementById("footer").innerHTML = footer.render();
+
+      function renderCartPage() {
+        let cartProducts = getCartProducts();
+        let subtotal = 0;
+        let shipping = 30000;
+        let taxRate = 0.11;
+        let tax = 0;
+        let total = 0;
+
+        const cartProductsContainer = document.getElementById(
+          "cart-products-container"
+        );
+
+        cartProductsContainer.innerHTML = "";
+
+        if (cartProducts.length === 0) {
+          const emptyCartSection =
+            document.getElementById("empty-cart-section");
+          emptyCartSection.classList.remove("hidden");
+          emptyCartSection.classList.add("flex");
+
+          const cardDetailsSection = document.getElementById("cart-details");
+          cardDetailsSection.classList.add("hidden");
+
+          return;
+        }
+
+        cartProducts.map((cartProduct) => {
+          const product = getProductById(parseInt(cartProduct.id));
+
+          const selectedVariant = product.variant.find(
+            (variant) => variant.name === cartProduct.color
+          );
+
+          subtotal = subtotal + product.discountedPrice * cartProduct.quantity;
+
+          const cartProductRow = document.createElement("tr");
+          cartProductRow.classList.add("border-b");
+          cartProductRow.innerHTML = `
+          <td class="flex items-center p-2">
+            <img
+              src="${selectedVariant.images[0]}"
+              class="w-20 h-20 object-cover mr-4"
+              alt="${product.name} Product Image"
+            />
+            <div>
+              <h4 class="font-medium">
+                ${product.name}
+              </h4>
+              <span class="text-zinc-700 text-sm"
+                >Color: ${cartProduct.color} &bull; Size: ${
+            cartProduct.size
+          }</span
+              >
+            </div>
+          </td>
+          <td class="text-center p-2">
+            <div class="inline-flex items-center border">
+              <button onclick="handleChangeQuantity(${cartProduct.id}, '${
+            cartProduct.color
+          }', '${cartProduct.size}', ${cartProduct.quantity - 1})"
+                class="px-3 py-2">
+                -
+              </button>
+              <input
+                id="quantity"
+                type="number"
+                min="1"
+                value="${cartProduct.quantity}"
+                class="w-12 text-center bg-white ring-0 focus:ring-0 focus:outline-none border-l border-r"
+                readonly
+              />
+              <button onclick="handleChangeQuantity(${cartProduct.id}, '${
+            cartProduct.color
+          }', '${cartProduct.size}', ${cartProduct.quantity + 1})"
+                class="px-3 py-2">
+                +
+              </button>
+            </div>
+          </td>
+          <td class="text-right p-2 font-medium">${formatPrice(
+            product.discountedPrice * cartProduct.quantity
+          )}</td>
+          `;
+
+          cartProductsContainer.appendChild(cartProductRow);
+        });
+
+        tax = parseInt((subtotal + shipping) * taxRate);
+        total = subtotal + shipping + tax;
+
+        document.getElementById("subtotal").textContent = formatPrice(subtotal);
+        document.getElementById("shipping").textContent = formatPrice(shipping);
+        document.getElementById("tax").textContent = formatPrice(tax);
+        document.getElementById("total").textContent = formatPrice(total);
+      }
+
+      function handleChangeQuantity(id, color, size, newQuantity) {
+        console.log(id, color, size, newQuantity);
+
+        if (newQuantity > 0) {
+          updateCartItem(id, color, size, newQuantity);
+        } else {
+          deleteCartItem(id, color, size);
+        }
+
+        renderCartPage();
+      }
+
+      window.handleChangeQuantity = handleChangeQuantity;
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderCartPage();
+      });
+
+      lucide.createIcons();
+      AOS.init();
+    </script>
+  </body>
+</html>
