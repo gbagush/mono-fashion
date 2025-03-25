@@ -33,20 +33,21 @@ class ProductCard {
 
     return `
       <div class="relative group cursor-pointer">
-        <img
-          src="${this.imageSrc}"
-          alt="${this.altText}"
-          class="w-full h-80 object-cover"
-        />
-
-        <div
-          class="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-80"
-        >
-          <span
-            class="w-full text-center bg-white text-sm font-bold uppercase p-2"
+        <div class="relative">
+          <img
+            src="${this.imageSrc}"
+            alt="${this.altText}"
+            class="w-full object-cover"
+          />
+          <div
+            class="absolute inset-x-0 bottom-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           >
-            View Product
-          </span>
+            <span
+              class="w-full text-center bg-white text-sm font-bold uppercase p-2"
+            >
+              View Product
+            </span>
+          </div>
         </div>
 
         <div class="flex flex-col py-2">
