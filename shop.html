@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MONO - No 1 Men's Wear</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <meta name="title" content="MONO - No 1 Men's Wear" />
+    <meta
+      name="description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="og:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:image" content="" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="" />
+    <meta property="twitter:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="twitter:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="twitter:image" content="" />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+
+    <!-- TAILWIND CSS PLAYCDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div
+        id="breadcrumb"
+        class="flex flex-row items-center justify-center gap-4 mb-8"
+      ></div>
+
+      <div
+        id="products-not-found"
+        class="hidden items-center justify-center min-h-[calc(100vh-200px)]"
+      >
+        <div class="text-center">
+          <h2 class="text-2xl font-bold mb-4">No Products Found</h2>
+          <p class="text-zinc-500 mb-8">
+            We couldn't find any products matching your selection.
+          </p>
+          <a
+            href="shop.html"
+            class="bg-black hover:bg-zinc-700 text-white font-semibold py-4 px-8 transition duration-300 ease-in-out"
+          >
+            Browse Our Collection
+          </a>
+        </div>
+      </div>
+
+      <div
+        id="products-grid"
+        class="grid grid-cols-2 md:grid-cols-4 gap-4"
+      ></div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="/assets/components/navbar.js"></script>
+    <script src="/assets/components/footer.js"></script>
+    <script src="/assets/components/product-card.js"></script>
+
+    <script src="/assets/js/navbar.js"></script>
+
+    <script type="module">
+      import {
+        getAllProducts,
+        getProductsBySection,
+        getProductsBySectionAndCategory,
+        transformProductData,
+      } from "/assets/js/product.js";
+      import { generateBreadcrumb } from "/assets/js/utils.js";
+
+      const navbar = new Navbar();
+      document.getElementById("navbar").innerHTML = navbar.render();
+
+      const footer = new Footer();
+      document.getElementById("footer").innerHTML = footer.render();
+
+      generateBreadcrumb();
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const section = urlParams.get("section");
+      const category = urlParams.get("category");
+
+      generateBreadcrumb(section, category);
+
+      let products = [];
+
+      if (!section && !category) {
+        products = getAllProducts();
+      } else if (section && !category) {
+        products = getProductsBySection(section);
+      } else if (section && category) {
+        products = getProductsBySectionAndCategory(section, category);
+      }
+
+      if (products.length === 0) {
+        document.getElementById("breadcrumb").style.display = "none";
+
+        const notFoundSection = document.getElementById("products-not-found");
+        notFoundSection.classList.remove("hidden");
+        notFoundSection.classList.add("flex");
+      } else {
+        products = products.map(transformProductData);
+
+        const productGrid = document.getElementById("products-grid");
+        products.forEach((productData) => {
+          const productCard = new ProductCard(productData);
+          productGrid.innerHTML += productCard.render();
+        });
+      }
+
+      lucide.createIcons();
+      AOS.init();
+    </script>
+  </body>
+</html>

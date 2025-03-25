@@ -13,7 +13,7 @@ class Navbar {
           <div class="hidden sm:flex sm:space-x-8 justify-center">
             <div class="relative group">
               <a
-                href="#"
+                href="/shop.html?section=top"
                 class="text-black inline-flex items-center px-3 py-2 border-b-2 border-transparent hover:border-black text-base font-medium transition duration-300 ease-in-out"
               >
                 Top
@@ -25,20 +25,20 @@ class Navbar {
               <div
                 class="absolute min-w-[180px] z-40 bg-white border border-zinc-200 shadow-lg hidden group-hover:block transition-all duration-300 ease-in-out"
               >
-                <a href="#" class="block px-4 py-2 text-sm hover:bg-zinc-100"
-                  >Shirt</a
+                <a href="/shop.html?section=top&category=shirts" class="block px-4 py-2 text-sm hover:bg-zinc-100"
+                  >Shirts</a
                 >
-                <a href="#" class="block px-4 py-2 text-sm hover:bg-zinc-100"
-                  >T-Shirt</a
+                <a href="/shop.html?section=top&category=t-shirts" class="block px-4 py-2 text-sm hover:bg-zinc-100"
+                  >T-Shirts</a
                 >
-                <a href="#" class="block px-4 py-2 text-sm hover:bg-zinc-100"
-                  >Outwear</a
+                <a href="/shop.html?section=top&category=outwears" class="block px-4 py-2 text-sm hover:bg-zinc-100"
+                  >Outwears</a
                 >
               </div>
             </div>
             <div class="relative group">
               <a
-                href="#"
+                href="/shop.html?section=bottom"
                 class="text-black inline-flex items-center px-3 py-2 border-b-2 border-transparent hover:border-black text-base font-medium"
               >
                 Bottom
@@ -50,17 +50,17 @@ class Navbar {
               <div
                 class="absolute min-w-[180px] z-40 bg-white border border-zinc-200 shadow-lg hidden group-hover:block transition-all duration-300 ease-in-out"
               >
-                <a href="#" class="block px-4 py-2 text-sm hover:bg-zinc-100"
+                <a href="/shop.html?section=bottom&category=pants" class="block px-4 py-2 text-sm hover:bg-zinc-100"
                   >Pants</a
                 >
-                <a href="#" class="block px-4 py-2 text-sm hover:bg-zinc-100"
+                <a href="/shop.html?section=bottom&category=short pants" class="block px-4 py-2 text-sm hover:bg-zinc-100"
                   >Short Pants</a
                 >
               </div>
             </div>
             <div class="relative group">
               <a
-                href="#"
+                href="/shop.html?section=accessories"
                 class="text-black inline-flex items-center px-3 py-2 border-b-2 border-transparent hover:border-black text-base font-medium"
               >
                 Accessories
@@ -69,14 +69,14 @@ class Navbar {
               <div
                 class="absolute min-w-[180px] z-40 bg-white border border-zinc-200 shadow-lg hidden group-hover:block"
               >
-                <a href="#" class="block px-4 py-2 text-sm hover:bg-zinc-100"
+                <a href="/shop.html?section=accessories&category=glasses" class="block px-4 py-2 text-sm hover:bg-zinc-100"
                   >Glasses</a
                 >
-                <a href="#" class="block px-4 py-2 text-sm hover:bg-zinc-100"
+                <a href="/shop.html?section=accessories&category=cap" class="block px-4 py-2 text-sm hover:bg-zinc-100"
                   >Cap</a
                 >
-                <a href="#" class="block px-4 py-2 text-sm hover:bg-zinc-100"
-                  >Watch</a
+                <a href="/shop.html?section=accessories&category=belt" class="block px-4 py-2 text-sm hover:bg-zinc-100"
+                  >Belt</a
                 >
               </div>
             </div>
@@ -124,9 +124,9 @@ class Navbar {
               <i data-lucide="chevron-down" class="w-4 h-4 inline ml-1"></i>
             </button>
             <div id="mobile-top-menu" class="hidden pl-6 bg-zinc-50">
-              <a href="#" class="block px-4 py-2 text-base">Shirt</a>
-              <a href="#" class="block px-4 py-2 text-base">T-Shirt</a>
-              <a href="#" class="block px-4 py-2 text-base">Outwear</a>
+              <a href="/shop.html?section=top&category=shirts" class="block px-4 py-2 text-base hover:bg-zinc-100">Shirts</a>
+              <a href="/shop.html?section=top&category=t-shirts" class="block px-4 py-2 text-base hover:bg-zinc-100">T-Shirts</a>
+              <a href="/shop.html?section=top&category=outwears" class="block px-4 py-2 text-base hover:bg-zinc-100">Outwears</a>
             </div>
           </div>
 
@@ -139,8 +139,8 @@ class Navbar {
               <i data-lucide="chevron-down" class="w-4 h-4 inline ml-1"></i>
             </button>
             <div id="mobile-bottom-menu" class="hidden pl-6 bg-zinc-50">
-              <a href="#" class="block px-4 py-2 text-base">Pants</a>
-              <a href="#" class="block px-4 py-2 text-base">Short Pants</a>
+              <a href="/shop.html?section=bottom&category=pants" class="block px-4 py-2 text-base hover:bg-zinc-100">Pants</a>
+              <a href="/shop.html?section=bottom&category=short pants" class="block px-4 py-2 text-base hover:bg-zinc-100">Short Pants</a>
             </div>
           </div>
 
@@ -153,9 +153,9 @@ class Navbar {
               <i data-lucide="chevron-down" class="w-4 h-4 inline ml-1"></i>
             </button>
             <div id="mobile-accessories-menu" class="hidden pl-6 bg-zinc-50">
-              <a href="#" class="block px-4 py-2 text-base">Glasses</a>
-              <a href="#" class="block px-4 py-2 text-base">Cap</a>
-              <a href="#" class="block px-4 py-2 text-base">Watch</a>
+              <a href="/shop.html?section=accessories&category=glasses" class="block px-4 py-2 text-base hover:bg-zinc-100">Glasses</a>
+              <a href="/shop.html?section=accessories&category=cap" class="block px-4 py-2 text-base hover:bg-zinc-100">Cap</a>
+              <a href="/shop.html?section=accessories&category=belt" class="block px-4 py-2 text-base hover:bg-zinc-100">Belt</a>
             </div>
           </div>
         </div>

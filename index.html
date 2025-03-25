@@ -60,7 +60,7 @@
           <div class="text-white">
             <h1 class="text-5xl font-bold mb-12">NEW SEASON</h1>
             <a
-              href="#best-categories"
+              href="shop.html"
               class="bg-white hover:bg-zinc-300 text-black font-semibold py-4 px-8 transition duration-300 ease-in-out"
             >
               Shop Now
@@ -151,58 +151,23 @@
 
     <script src="/assets/js/navbar.js"></script>
 
-    <script>
+    <script type="module">
+      import {
+        getNewArivalProducts,
+        transformProductData,
+      } from "/assets/js/product.js";
+
+      const newArivalProducts =
+        getNewArivalProducts().map(transformProductData);
+
       const navbar = new Navbar();
       document.getElementById("navbar").innerHTML = navbar.render();
 
       const footer = new Footer();
       document.getElementById("footer").innerHTML = footer.render();
 
-      const products = [
-        {
-          imageSrc:
-            "https://www.matahari.com/media/catalog/product/3/7/3756-121356953-IMG1.jpg?optimize=medium&fit=bounds&height=379&width=293",
-          altText: "Outwear",
-          brand: "Nevada",
-          productName:
-            "Nevada Woven Twill Basic Color Series Kemeja Lengan Pendek Pria",
-          price: "Rp 125,000",
-          originalPrice: "Rp 249,000",
-          discount: "-50%",
-        },
-        {
-          imageSrc:
-            "https://www.matahari.com/media/catalog/product/2/0/20160210_1.jpg?optimize=medium&fit=bounds&height=379&width=293",
-          altText: "Pants",
-          brand: "Cole",
-          productName: "Cole Fab Solid Kemeja Pria",
-          price: "Rp 144,000",
-          originalPrice: "Rp 179,000",
-          discount: "-20%",
-        },
-        {
-          imageSrc: "assets/img/shirt.webp",
-          altText: "Shirt",
-          brand: "Nevada",
-          productName:
-            "Nevada Woven Twill Basic Color Series Kemeja Lengan Panjang Pria",
-          price: "Rp 100,000",
-          originalPrice: "Rp 200,000",
-          discount: "-50%",
-        },
-        {
-          imageSrc: "assets/img/t-shirt.webp",
-          altText: "T-Shirt",
-          brand: "Nevada",
-          productName: "Nevada Woven Twill Basic Color Series T-Shirt Pria",
-          price: "Rp 90,000",
-          originalPrice: "Rp 180,000",
-          discount: "-10%",
-        },
-      ];
-
       const productGrid = document.getElementById("new-arrivals-grid");
-      products.forEach((productData) => {
+      newArivalProducts.forEach((productData) => {
         const productCard = new ProductCard(productData);
         productGrid.innerHTML += productCard.render();
       });
