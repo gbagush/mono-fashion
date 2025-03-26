@@ -58,10 +58,16 @@ const getCartItemCount = () => {
   return cart.reduce((total) => total + 1, 0);
 };
 
+const clearCartItems = () => {
+  cart = [];
+  saveCartToLocalStorage();
+};
+
 export {
   addProductToCart,
   updateCartItem,
   deleteCartItem,
   getCartProducts,
   getCartItemCount,
+  clearCartItems,
 };

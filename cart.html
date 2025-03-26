@@ -259,6 +259,9 @@
           deleteCartItem(id, color, size);
         }
 
+        document.getElementById("cart-item-count").textContent =
+          getCartItemCount().toString();
+
         renderCartPage();
       }
 

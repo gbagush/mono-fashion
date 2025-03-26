@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MONO - No 1 Men's Wear</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <meta name="title" content="MONO - No 1 Men's Wear" />
+    <meta
+      name="description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="og:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="og:image" content="/assets/img/banner.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/" />
+    <meta property="twitter:title" content="MONO - No 1 Men's Wear" />
+    <meta
+      property="twitter:description"
+      content="Elevate your style with our premium selection of men's fashion. From sleek casuals to sharp formalwear, MONO offers timeless designs and impeccable quality for the modern man who values sophistication and individuality."
+    />
+    <meta property="twitter:image" content="/assets/img/banner.png" />
+
+    <link rel="stylesheet" href="assets/css/global.css" />
+
+    <!-- TAILWIND CSS PLAYCDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div
+        id="breadcrumb"
+        class="flex flex-wrap items-center justify-center gap-4 mb-8"
+      >
+        <a href="/" class="text-zinc-600 hover:underline">Home</a>
+        <span>/</span>
+        <a href="/shop.html" class="text-zinc-600 hover:underline">Shop</a>
+        <span>/</span>
+        <a>Thank You</a>
+      </div>
+
+      <div class="flex items-center justify-center min-h-[calc(100vh-200px)]">
+        <div class="text-center">
+          <i data-lucide="package" class="w-32 h-32 mx-auto mb-8"></i>
+
+          <h2 class="text-4xl font-bold mb-8">Thank you.</h2>
+
+          <p class="text-zinc-700 mb-4">
+            Your order has been placed successfully. We will ship your order as
+            soon as possible.
+          </p>
+          <p class="text-zinc-700 mb-8">
+            We&apos;ve sent your order details to your email.
+          </p>
+          <a
+            href="/"
+            class="bg-black hover:bg-zinc-700 text-white font-semibold py-4 px-8 transition duration-300 ease-in-out"
+          >
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="/assets/components/navbar.js"></script>
+    <script src="/assets/components/footer.js"></script>
+    <script src="/assets/components/product-card.js"></script>
+
+    <script src="/assets/js/navbar.js"></script>
+
+    <script type="module">
+      import {
+        getAllProducts,
+        getProductsBySection,
+        getProductsBySectionAndCategory,
+        transformProductData,
+      } from "/assets/js/product.js";
+      import { generateBreadcrumb } from "/assets/js/utils.js";
+      import { getCartItemCount } from "/assets/js/cart.js";
+
+      const navbar = new Navbar({ cartCount: getCartItemCount() });
+      document.getElementById("navbar").innerHTML = navbar.render();
+
+      const footer = new Footer();
+      document.getElementById("footer").innerHTML = footer.render();
+
+      lucide.createIcons();
+      AOS.init();
+    </script>
+  </body>
+</html>
