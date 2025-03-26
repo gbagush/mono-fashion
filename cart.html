@@ -114,10 +114,14 @@
               <span id="tax" class="font-medium"></span>
             </div>
             <div class="flex items-center justify-between py-8">
-              <span class="text-zinc-700">Total</span>
+              <span class="font-medium text-lg">Total</span>
               <span id="total" class="font-medium"></span>
             </div>
-            <button class="bg-black text-white py-4">Place Order</button>
+            <a
+              href="/checkout.html"
+              class="bg-black text-center text-white py-4"
+              >Place Order</a
+            >
           </div>
         </div>
       </div>
@@ -135,10 +139,7 @@
     <script src="/assets/js/navbar.js"></script>
 
     <script type="module">
-      import {
-        getProductById,
-        transformProductData,
-      } from "/assets/js/product.js";
+      import { getProductById } from "/assets/js/product.js";
       import {
         getCartItemCount,
         getCartProducts,
